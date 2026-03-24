@@ -30,6 +30,6 @@ public class MyJump : MonoBehaviour
                 // 이 오브젝트의 y 좌표점 위치가 5보다 크거나 -3보다 작을 경우
                 Destroy(this.gameObject);           //오브젝트 파괴.
             }
-        }
+        
     }
 }
