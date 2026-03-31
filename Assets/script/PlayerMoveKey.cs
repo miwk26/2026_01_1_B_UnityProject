@@ -9,7 +9,7 @@ public class PlayerMoveKey : MonoBehaviour
 
     public bool isGrounded = true;
 
-    public int potionCount = 0;
+    public int posionCount = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,14 +24,15 @@ public class PlayerMoveKey : MonoBehaviour
         float moveVertical = Input.GetAxis("Vertical");
 
 
-        rb.linearVelocity = new Vector3(moveHorizontal * moveSpeed, moveVertical * moveSpeed);
+        rb.linearVelocity = new Vector3(moveHorizontal * moveSpeed,0, moveVertical * moveSpeed);
 
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isGrounded = false;
-        }
+     }   }
+
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -48,7 +49,7 @@ public class PlayerMoveKey : MonoBehaviour
     {
         if (other.CompareTag("posion"))
         {
-            potionCount++;
+            posionCount++;
             Destroy(other.gameObject);
         }
 
